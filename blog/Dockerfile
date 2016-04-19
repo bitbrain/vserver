@@ -1,6 +1,10 @@
 FROM nginx
 MAINTAINER bitbrain
 
+ENV NGINX=/usr/share/nginx/html
+ENV BLOG=myrealitycoding.github.io-master
+
+
 # install required tools
 RUN apt-get update
 RUN apt-get install -y \
@@ -25,5 +29,5 @@ RUN rm master.zip
 
 # Build the blog
 RUN jekyll build \
-    --source myrealitycoding.github.io-master \
-    --destination /usr/share/nginx/html
+    --source $BLOG \
+    --destination $NGINX
