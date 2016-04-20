@@ -1,12 +1,21 @@
 COMPONENT=blog
+NGINX=custom-nginx
 JEKYLL_PATH=jekyll
+NGINX_PATH=nginx
 
-build:
+build-blog:
 	@echo "Building blog.."
 	docker build \
 		--tag $(COMPONENT)":latest" \
 		$(JEKYLL_PATH)
 	@echo "Built "$(COMPONENT)
+
+build-nginx:
+	@echo "Building nginx.."
+	docker build \
+		--tag $(NGINX)":latest" \
+		$(NGINX_PATH)
+	@echo "Built "$(NGINX)
 
 run-jekyll:
 	@echo "Running blog.."
@@ -30,7 +39,7 @@ run-nginx:
 		--publish 80:80 \
 		--name nginx \
 		--volumes-from $(COMPONENT) \
-		nginx
+		$(NGINX)
 
 stop-nginx:
 	docker stop nginx
