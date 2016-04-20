@@ -1,5 +1,5 @@
 FROM ubuntu:14.04.4
-MAINTAINER bitbrain
+MAINTAINER bitbrain <miguel-gonzalez@gmx.de>
 
 ENV REPOSITORY=https://github.com/MyRealityCoding/myrealitycoding.github.io.git
 ENV JEKYLL_SOURCE=/myrealitycoding.github.io
