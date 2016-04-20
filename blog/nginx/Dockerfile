@@ -1,6 +1,5 @@
 FROM nginx
-
-MAINTAINER bitbrain
+MAINTAINER bitbrain <miguel-gonzalez@gmx.de>
 
 ADD my-reality.de my-reality.de
 
